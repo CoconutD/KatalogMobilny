@@ -2,25 +2,23 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private void PokazClicked(object sender, EventArgs e)
         {
-            count++;
+            ZdjecieProduktu.IsVisible = true;
+            EtykietaInfo.Text = "Wybrano myszkę";
+        }
 
-            if (count == 1)
-                Clicked.Text = $"Clicked {count} time";
-            else
-                Clicked.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(Clicked.Text);
+        private void UkryjClicked(object sender, EventArgs e)
+        {
+            ZdjecieProduktu.IsVisible = false;
+            EtykietaInfo.Text = "Zdjęcie ukryte";
         }
     }
 }
-// pierwsze 02,708 s 
+// pierwsze 02,708 s
 // drugie 02,549 s

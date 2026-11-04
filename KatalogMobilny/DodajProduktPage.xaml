@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KatalogMobilny.DodajProduktPage"
+             Title="Dodaj produkt">
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text="Dodawanie produktu" FontSize="24" TextColor="#008BFF" HorizontalOptions="Center" Margin="0,0,0,10"/>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15">
+
+                <Label Text="Nazwa produktu"/>
+                <Entry x:Name="PoleNazwa" Placeholder="np. Ryzen 5" TextChanged="NazwaZmieniona"/>
+
+                <Label Text="Cena (zł)"/>
+                <Entry x:Name="PoleCena" Placeholder="0" Keyboard="Numeric"/>
+
+                <Label Text="Kategoria"/>
+                <Picker x:Name="ListaKategorii" Title="Wybierz kategorię" SelectedIndexChanged="KategoriaZmieniona">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Procesory</x:String>
+                            <x:String>Płyty główne</x:String>
+                            <x:String>Karty graficzne</x:String>
+                            <x:String>Dyski SSD</x:String>
+                            <x:String>Pamięci RAM</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Switch x:Name="PrzelacznikDostepny" IsToggled="True" Toggled="DostepnyZmieniony"/>
+                    <Label x:Name="EtykietaDostepny" Text="Produkt dostępny" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Dodaj" Clicked="DodajClicked"/>
+                <Button Grid.Column="1" Text="Wyczyść" Clicked="WyczyscClicked"/>
+            </Grid>
+            <Label x:Name="EtykietaWyniku" Text="Nie dodano jeszcze produktu"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

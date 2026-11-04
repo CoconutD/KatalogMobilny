@@ -3,36 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KatalogMobilny.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="mysz.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a submarine number ten" />
+    <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <!-- Auto = tyle miejsca ile potrzeba -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- * = reszta wolnego miejsca (na obrazek) -->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Label
-                Text="Cześć!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" 
-                FontSize="60" />
+        <FlexLayout Grid.Row="0" Grid.ColumnSpan="2" Wrap="Wrap" JustifyContent="Center">
+            <Button Text="Myszki" Margin="3"/>
+            <Button Text="Klawiatury" Margin="3"/>
+            <Button Text="Monitory" Margin="3"/>
+            <Button Text="Słuchawki" Margin="3"/>
+            <Button Text="Głośniki" Margin="3"/>
+        </FlexLayout>
 
-            <Label
-                Text="Welcome to Test"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" 
-                FontSize="40" />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Myszka komputerowa" FontSize="22" TextColor="#F20808" HorizontalOptions="Center"/>
 
-            <Button
-                x:Name="Clicked"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" Background="#F20808" />
-        </VerticalStackLayout>
-    </ScrollView>
+        <Image Grid.Row="2" Grid.ColumnSpan="2" x:Name="ZdjecieProduktu" Source="mysz.png" Aspect="AspectFit"/>
+
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Text="Cena: 149 zł" FontSize="26" TextColor="Gray" HorizontalOptions="Center"/>
+
+        <Label Grid.Row="4" Grid.ColumnSpan="2" x:Name="EtykietaInfo" Text="Kliknij przycisk" HorizontalOptions="Center"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Text="Pokaż" Clicked="PokazClicked"/>
+        <Button Grid.Row="5" Grid.Column="1" Text="Ukryj" Clicked="UkryjClicked"/>
+    </Grid>
 
 </ContentPage>
