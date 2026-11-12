@@ -19,7 +19,12 @@
                 <Entry x:Name="PoleNazwa" Placeholder="np. Ryzen 5" TextChanged="NazwaZmieniona"/>
 
                 <Label Text="Cena (zł)"/>
-                <Entry x:Name="PoleCena" Placeholder="0" Keyboard="Numeric"/>
+                <Entry x:Name="PoleCena" Placeholder="0" Keyboard="Numeric" TextChanged="LiczbaZmieniona"/>
+
+                <Label Text="Ilość (szt.)"/>
+                <Entry x:Name="PoleIlosc" Placeholder="0" Keyboard="Numeric" TextChanged="LiczbaZmieniona"/>
+
+                <Label x:Name="EtykietaWartosc" Text="Wartość: 0 zł" FontAttributes="Bold"/>
 
                 <Label Text="Kategoria"/>
                 <Picker x:Name="ListaKategorii" Title="Wybierz kategorię" SelectedIndexChanged="KategoriaZmieniona">
